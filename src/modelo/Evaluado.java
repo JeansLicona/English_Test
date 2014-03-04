@@ -10,6 +10,14 @@ package modelo;
  */
 public class Evaluado {
 
+    public int getID_evaluado() {
+        return id_evaluado;
+    }
+
+    public void setID_evaluado(int id_evaluado) {
+        this.id_evaluado = id_evaluado;
+    }
+
     public String getNombres() {
         return nombres;
     }
@@ -42,6 +50,7 @@ public class Evaluado {
         this.nombre_usuario = nombre_usuario;
     }
     
+    private int id_evaluado;
     private String nombres;
     private String primer_apellido;
     private String segundo_apellido;

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package base_datos;
+package dao_base_datos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author Jeans Michell
  */
-public class SentenciaSQL {
+public class DAO_Base_Datos {
 
     public int registrarDatoDeBaseDatos(String nombreTabla, String columnas, String datos) throws SQLException {
         servidor = crearConexion();
@@ -64,7 +64,7 @@ public class SentenciaSQL {
         return BusquedaDivididaPorRenglonesYColumnas;
     }
     
-    private static String baseDatos = "coa";
+    private static String baseDatos = "english_test";
     private static String usuarioBaseDatos = "root";
     private static String contraseña = "";
     private static String url = "jdbc:mysql://localhost/" + baseDatos;
