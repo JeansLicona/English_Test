@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-02-2014 a las 18:12:23
+-- Tiempo de generación: 10-03-2014 a las 16:09:50
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.3.13
 
@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `evaluado` (
 CREATE TABLE IF NOT EXISTS `pregunta` (
   `id_pregunta` int(11) NOT NULL AUTO_INCREMENT,
   `pregunta` varchar(110) COLLATE utf8_unicode_ci NOT NULL,
+  `tipo_pregunta` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_pregunta`),
   UNIQUE KEY `id_pregunta_UNIQUE` (`id_pregunta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
