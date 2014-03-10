@@ -10,6 +10,14 @@ package modelo;
  */
 public class Resultado_Evaluacion {
 
+    public Resultado_Evaluacion(){}
+    
+    public Resultado_Evaluacion(int id_resultado, Evaluado evaluado, double resultado){
+        this.id_resultado=id_resultado;
+        this.evaluado=evaluado;
+        this.resultado=resultado;
+    }
+    
     public int getID_resultado() {
         return id_resultado;
     }

@@ -10,6 +10,16 @@ package modelo;
  */
 public class Evaluado {
 
+    public Evaluado(){}
+    
+    public Evaluado(int id_evaluado,String nombres,String primer_apellido, String segundo_apellido,String nombre_usuario){
+        this.id_evaluado=id_evaluado;
+        this.nombre_usuario=nombre_usuario;
+        this.nombres=nombres;
+        this.primer_apellido=primer_apellido;
+        this.segundo_apellido=segundo_apellido;
+    }
+    
     public int getID_evaluado() {
         return id_evaluado;
     }

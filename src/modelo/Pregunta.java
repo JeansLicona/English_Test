@@ -12,6 +12,15 @@ import java.util.ArrayList;
  */
 public class Pregunta {
 
+    public Pregunta(){}
+    
+    public Pregunta(int id_pregunta,String pregunta,ArrayList<Respuesta> respuestas,String tipo_pregunta){
+        this.id_pregunta=id_pregunta;
+        this.pregunta=pregunta;
+        this.respuestas=respuestas;
+        this.tipo_pregunta=tipo_pregunta;
+    }
+    
     public int getID_pregunta() {
         return id_pregunta;
     }
@@ -20,12 +29,12 @@ public class Pregunta {
         this.id_pregunta = id_pregunta;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getPregunta() {
+        return pregunta;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
     }
 
     public ArrayList<Respuesta> getRespuestas() {
@@ -36,7 +45,17 @@ public class Pregunta {
         this.respuestas = respuestas;
     }
     
+    public String getTipo_pregunta() {
+        return tipo_pregunta;
+    }
+
+    public void setTipo_pregunta(String tipo_pregunta) {
+        this.tipo_pregunta = tipo_pregunta;
+    }
+    
     private int id_pregunta;
-    private String descripcion;
+    private String pregunta;
     private ArrayList<Respuesta> respuestas;
+    private String tipo_pregunta;
+    
 }

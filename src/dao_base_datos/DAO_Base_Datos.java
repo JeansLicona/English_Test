@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class DAO_Base_Datos {
 
-    public int registrarDatoDeBaseDatos(String nombreTabla, String columnas, String datos) throws SQLException {
+    public int registrarDatoEnBaseDatos(String nombreTabla, String columnas, String datos) throws SQLException {
         servidor = crearConexion();
         sentenciaConsultaSql = crearsentenciaparaRegistro(nombreTabla, columnas, datos);
         int clave = ejecutarActualizacion(servidor, sentenciaConsultaSql);
