@@ -107,6 +107,7 @@ public class DAO_Base_Datos {
     }
 
     private Statement crearConexion() throws SQLException {
+        establecerConexion();
         return conexion.createStatement();
     }
 

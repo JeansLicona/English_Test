@@ -46,13 +46,14 @@ public class DAO_Respuesta extends DAO_Base_Datos{
     
     public ArrayList<Respuesta> buscarRespuestas(int id_pregunta){
         ArrayList datosRespuestas;
+        ArrayList<Respuesta> respuestas = null;
         try {
             establecerConexion();
             String idPregunta= ""+id_pregunta;
             buscarDatoDeBaseDatos(nombreTabla, columnaFK, idPregunta);
             datosRespuestas=obtenerBusquedaEstructurada();
             cerrarConexion();
-            convertirDatosARespuesta(datosRespuestas);    
+            respuestas = convertirDatosARespuesta(datosRespuestas);    
         } catch (SQLException e) {
             System.out.println("Error al buscar las respuestas");
         }
@@ -78,9 +79,10 @@ public class DAO_Respuesta extends DAO_Base_Datos{
     private String columnaLlave="id_respuesta";
     private String columnaFK="pregunta_id";
     private String columnasTabla="respuesta , ponderacion, pregunta_id";
-    private ArrayList<Respuesta> respuestas=new ArrayList<Respuesta>();
+    //private ArrayList<Respuesta> respuestas=new ArrayList<Respuesta>();
     
-    private void convertirDatosARespuesta(ArrayList datosRespuestas){
+    private ArrayList<Respuesta> convertirDatosARespuesta(ArrayList datosRespuestas){
+        ArrayList<Respuesta> respuestas = new ArrayList();
         for (int fila = 0; fila < datosRespuestas.size(); fila++) {
             ArrayList datosRespuesta=(ArrayList)datosRespuestas.get(fila);
             int id_respuesta=(Integer)datosRespuesta.get(0);
@@ -89,5 +91,6 @@ public class DAO_Respuesta extends DAO_Base_Datos{
             Respuesta respuesta=new Respuesta(id_respuesta, respuestaDescripcion, ponderacion);
             respuestas.add(respuesta);
         }
+        return respuestas;
     }
 }
