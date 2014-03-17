@@ -47,10 +47,11 @@ public class ControladorLogin {
         DAO_Evaluado daoEval = new DAO_Evaluado();
         daoEval.registrarEvaluado(evaluado);
         
-        evaluado = _daoEvaluado.buscarEvaluado(evaluado.getNombres());
+        evaluado = _daoEvaluado.buscarEvaluado(evaluado.getNombre_usuario());
         
         ControladorOpcionMultiple ctrlOpMult= new ControladorOpcionMultiple(evaluado);
         ctrlOpMult.iniciarPantalla();
+        _login.setVisible(false);
     }
     
     /**
@@ -75,9 +76,18 @@ public class ControladorLogin {
         return nombreAgrupado;
     }
     
+    /**
+     * Crea un nombre de usuario a partir de los de la primera letra de apellidoP
+     * la primera letra de apellidoM y las 2 primeras letras del primer o unico
+     * nombre.
+     * @param nombres nombres de evaluado
+     * @param apellidoP apellido paterno del evaluado
+     * @param apellidoM apellido materno del evaluado
+     * @return nombre de usuario creado
+     */
     private String crearNombreUsuario(String nombres, String apellidoP, String apellidoM){
         int valorEntero = (int) Math.floor(Math.random()*(100-999+1)+999);
-        String nombreUsuario = apellidoP.substring(0, 1) + apellidoM.substring(0,1) + nombres.substring(0,2)+valorEntero;
+        String nombreUsuario = apellidoP.substring(0, 1) + apellidoM.substring(0,1) + nombres.substring(0,2);//+valorEntero;
         
         return nombreUsuario;
     }

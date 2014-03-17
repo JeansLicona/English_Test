@@ -65,6 +65,28 @@ public class Examen extends javax.swing.JFrame {
         _regresar.setEnabled(true);
     }
     
+    /**
+     * Selecciona la opcion una opcion de las respuestas.
+     * @param opcionSeleccionada opcion que se seleccionara
+     */
+    public void selecionarOpcion(int opcionSeleccionada){
+        switch(opcionSeleccionada){
+            case 1: _opcion1.setSelected(true);
+                break;
+            case 2: _opcion2.setSelected(true);
+                break;
+            case 3: _opcion3.setSelected(true);
+                break;
+            case 4: _opcion4.setSelected(true);
+        }
+    }
+    
+    public void limpiarSelecciones(){
+        _opcion1.setSelected(false);
+        _opcion2.setSelected(false);
+        _opcion3.setSelected(false);
+        _opcion4.setSelected(false);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -231,19 +253,19 @@ public class Examen extends javax.swing.JFrame {
     }//GEN-LAST:event_terminarExamenActionPerformed
 
     private void _opcion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__opcion4ActionPerformed
-        
+        _controlador.asignarRespuestaUsuario(_controlador.obtenerRespuestaActual(3));
     }//GEN-LAST:event__opcion4ActionPerformed
 
     private void _opcion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__opcion3ActionPerformed
-        
+        _controlador.asignarRespuestaUsuario(_controlador.obtenerRespuestaActual(2));
     }//GEN-LAST:event__opcion3ActionPerformed
 
     private void _opcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__opcion2ActionPerformed
-        
+        _controlador.asignarRespuestaUsuario(_controlador.obtenerRespuestaActual(1));
     }//GEN-LAST:event__opcion2ActionPerformed
 
     private void _opcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__opcion1ActionPerformed
-        
+        _controlador.asignarRespuestaUsuario(_controlador.obtenerRespuestaActual(0));
     }//GEN-LAST:event__opcion1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

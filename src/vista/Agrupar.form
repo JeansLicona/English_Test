@@ -226,12 +226,19 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo1_2">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo1_2FocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo1_1">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo1_1FocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo1_3">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_TxtFldGrupo1_3ActionPerformed"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo1_3FocusLost"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="_LblGrupo2">
@@ -242,11 +249,18 @@
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo2_2">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_TxtFldGrupo2_2ActionPerformed"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo2_2FocusLost"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo2_1">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo2_1FocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo2_3">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo2_3FocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="_LblGrupo3">
           <Properties>
@@ -256,11 +270,18 @@
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo3_2">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_TxtFldGrupo3_2ActionPerformed"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo3_2FocusLost"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo3_1">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo3_1FocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo3_3">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo3_3FocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="_LblGrupo4">
           <Properties>
@@ -268,10 +289,19 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo4_2">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo4_2FocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo4_1">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo4_1FocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo4_3">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo4_3FocusLost"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

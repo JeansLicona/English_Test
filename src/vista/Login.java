@@ -47,6 +47,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setText("Name:");
 
+        JTxtFld_Nombre.setText("Manuel Emeterio Couoh Flota");
         JTxtFld_Nombre.setToolTipText("Ejemplo: Nombres apellidoPaterno apellidoMaterno ");
         JTxtFld_Nombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 

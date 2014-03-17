@@ -86,6 +86,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="JTxtFld_Nombre">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Manuel Emeterio Couoh Flota"/>
         <Property name="toolTipText" type="java.lang.String" value="Ejemplo: Nombres apellidoPaterno apellidoMaterno "/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor de Texto"/>
