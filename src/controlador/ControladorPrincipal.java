@@ -6,6 +6,8 @@
 
 package controlador;
 
+import modelo.Evaluado;
+
 /**
  *
  * @author CFManuel
@@ -13,7 +15,10 @@ package controlador;
 public class ControladorPrincipal {
     
     public static void main (String args[]){
-        ControladorLogin ctrlLogin = new ControladorLogin();
-        ctrlLogin.iniciarPantalla();
+//        ControladorLogin ctrlLogin = new ControladorLogin();
+//        ctrlLogin.iniciarPantalla();
+        Evaluado evaluado = new Evaluado();
+        ControladorColumnas colum = new ControladorColumnas(evaluado);
+        colum.iniciarVista();
     }
 }
