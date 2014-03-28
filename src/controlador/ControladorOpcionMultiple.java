@@ -12,6 +12,7 @@ import modelo.Evaluado;
 import modelo.Pregunta;
 import modelo.Respuesta;
 import vista.Examen;
+import vista.Presentacion;
 
 /**
  * Controlador para la pantalla de la seccion de Opcion Multiple
@@ -24,13 +25,18 @@ public class ControladorOpcionMultiple {
      _daoPregunta = new DAO_Pregunta();
      _evaluado = evaluado;
      _respuestaUsuario = new ArrayList();
+     _presentacion = new Presentacion(this);
     }
     
+    public void iniciarPresentacion(){
+        _presentacion.setVisible(true);
+    }
     /**
      * Inicia la pantalla de este controlador
      */
     public void iniciarPantalla() {
         actualizarCampos();
+        _presentacion.setVisible(false);
         _opcionMultiple.setVisible(true);
     }
     
@@ -41,7 +47,8 @@ public class ControladorOpcionMultiple {
         _posicion++;
         if(_posicion>=_preguntas.size()){
             calcularGuardarCalificacion();
-            ControladorAgrupar ctrlOpMult= new ControladorAgrupar(_evaluado);
+            _opcionMultiple.setVisible(false);
+            ControladorAgrupar ctrlOpMult= new ControladorAgrupar(_evaluado,_calificacion);
             ctrlOpMult.iniciarPantalla();
         }else{
             actualizarCampos();
@@ -129,6 +136,7 @@ public class ControladorOpcionMultiple {
             calificacionSeccion1 = calificacionSeccion1 + _respuestaUsuario.get(i).getPonderacion();
         }
         System.out.println(calificacionSeccion1);
+        _calificacion+=calificacionSeccion1;
     }
     
     private Examen _opcionMultiple = null;
@@ -138,4 +146,6 @@ public class ControladorOpcionMultiple {
     private ArrayList<Respuesta> _respuestaUsuario = null;
     private ArrayList<Respuesta> _respuestasActuales = null;
     private ArrayList<Pregunta> _preguntas = null;
+    private double _calificacion = 0;
+    private Presentacion _presentacion= null;
 }

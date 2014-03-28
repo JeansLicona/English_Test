@@ -35,7 +35,6 @@ public class Agrupar extends javax.swing.JFrame {
         _JPanel = new javax.swing.JPanel();
         _lblInstruccion = new javax.swing.JLabel();
         _lblPregunta = new javax.swing.JLabel();
-        terminarExamen = new javax.swing.JButton();
         avanzar = new javax.swing.JButton();
         regresar = new javax.swing.JButton();
         _LblGrupo1 = new javax.swing.JLabel();
@@ -65,13 +64,6 @@ public class Agrupar extends javax.swing.JFrame {
 
         _lblPregunta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         _lblPregunta.setText("¿Pregunta?");
-
-        terminarExamen.setText("Terminar Examen");
-        terminarExamen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terminarExamenActionPerformed(evt);
-            }
-        });
 
         avanzar.setText("Avanzar >>");
         avanzar.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +162,11 @@ public class Agrupar extends javax.swing.JFrame {
             }
         });
 
+        _TxtFldGrupo4_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                _TxtFldGrupo4_1ActionPerformed(evt);
+            }
+        });
         _TxtFldGrupo4_1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 _TxtFldGrupo4_1FocusLost(evt);
@@ -193,49 +190,43 @@ public class Agrupar extends javax.swing.JFrame {
                         .addComponent(_LblGrupo1)
                         .addGap(18, 18, 18)
                         .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, _JPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(terminarExamen))
                             .addGroup(_JPanelLayout.createSequentialGroup()
+                                .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(_TxtFldGrupo1_2, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                                    .addComponent(_TxtFldGrupo1_3)
+                                    .addComponent(_TxtFldGrupo1_1, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(50, 50, 50)
+                                .addComponent(_LblGrupo2)
+                                .addGap(18, 18, 18)
+                                .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(_TxtFldGrupo2_3, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                                    .addComponent(_TxtFldGrupo2_2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(_TxtFldGrupo2_1, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(42, 42, 42)
+                                .addComponent(_LblGrupo3)
+                                .addGap(18, 18, 18)
+                                .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(_TxtFldGrupo3_3)
+                                    .addComponent(_TxtFldGrupo3_1)
+                                    .addComponent(_TxtFldGrupo3_2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(34, 34, 34)
+                                .addComponent(_LblGrupo4)
+                                .addGap(18, 18, 18)
                                 .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(_JPanelLayout.createSequentialGroup()
-                                        .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(_TxtFldGrupo1_2, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                            .addComponent(_TxtFldGrupo1_3)
-                                            .addComponent(_TxtFldGrupo1_1, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addGap(50, 50, 50)
-                                        .addComponent(_LblGrupo2)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(_TxtFldGrupo2_3, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                            .addComponent(_TxtFldGrupo2_2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(_TxtFldGrupo2_1, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addGap(42, 42, 42)
-                                        .addComponent(_LblGrupo3)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(_TxtFldGrupo3_3)
-                                            .addComponent(_TxtFldGrupo3_1)
-                                            .addComponent(_TxtFldGrupo3_2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(34, 34, 34)
-                                        .addComponent(_LblGrupo4)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(_TxtFldGrupo4_2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(_TxtFldGrupo4_1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(_TxtFldGrupo4_3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(_JPanelLayout.createSequentialGroup()
-                                        .addGap(409, 409, 409)
-                                        .addComponent(regresar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(avanzar)))
-                                .addGap(0, 12, Short.MAX_VALUE))))
+                                    .addComponent(_TxtFldGrupo4_2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(_TxtFldGrupo4_1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(_TxtFldGrupo4_3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(_JPanelLayout.createSequentialGroup()
+                                .addGap(409, 409, 409)
+                                .addComponent(regresar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(avanzar)))
+                        .addContainerGap(22, Short.MAX_VALUE))
                     .addGroup(_JPanelLayout.createSequentialGroup()
                         .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(_lblInstruccion)
                             .addComponent(_lblPregunta))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         _JPanelLayout.setVerticalGroup(
             _JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,9 +269,7 @@ public class Agrupar extends javax.swing.JFrame {
                 .addGroup(_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(avanzar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(regresar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(terminarExamen)
-                .addContainerGap())
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -305,15 +294,12 @@ public class Agrupar extends javax.swing.JFrame {
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
 
+        _controlador.regresarPregunta();
     }//GEN-LAST:event_regresarActionPerformed
 
     private void avanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avanzarActionPerformed
         _controlador.siguientePregunta();
     }//GEN-LAST:event_avanzarActionPerformed
-
-    private void terminarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarExamenActionPerformed
-
-    }//GEN-LAST:event_terminarExamenActionPerformed
 
     private void _TxtFldGrupo1_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__TxtFldGrupo1_3ActionPerformed
         // TODO add your handling code here:
@@ -329,64 +315,76 @@ public class Agrupar extends javax.swing.JFrame {
 
     private void _TxtFldGrupo1_1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo1_1FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo1_1.getText(), 1, 1);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo1_1.getText(), 0, 0);
     }//GEN-LAST:event__TxtFldGrupo1_1FocusLost
 
     private void _TxtFldGrupo1_2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo1_2FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo1_2.getText(), 1, 2);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo1_2.getText(), 0, 1);
     }//GEN-LAST:event__TxtFldGrupo1_2FocusLost
 
     private void _TxtFldGrupo1_3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo1_3FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo1_3.getText(), 1, 3);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo1_3.getText(), 0, 2);
     }//GEN-LAST:event__TxtFldGrupo1_3FocusLost
 
     private void _TxtFldGrupo2_1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo2_1FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo2_1.getText(), 2, 1);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo2_1.getText(), 1, 0);
     }//GEN-LAST:event__TxtFldGrupo2_1FocusLost
 
     private void _TxtFldGrupo2_2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo2_2FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo2_2.getText(), 2, 2);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo2_2.getText(), 1, 1);
     }//GEN-LAST:event__TxtFldGrupo2_2FocusLost
 
     private void _TxtFldGrupo2_3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo2_3FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo2_3.getText(), 2, 3);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo2_3.getText(), 1, 2);
     }//GEN-LAST:event__TxtFldGrupo2_3FocusLost
 
     private void _TxtFldGrupo3_1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo3_1FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo3_1.getText(), 3, 1);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo3_1.getText(), 2, 0);
     }//GEN-LAST:event__TxtFldGrupo3_1FocusLost
 
     private void _TxtFldGrupo3_2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo3_2FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo3_2.getText(), 3, 2);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo3_2.getText(), 2, 1);
     }//GEN-LAST:event__TxtFldGrupo3_2FocusLost
 
     private void _TxtFldGrupo3_3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo3_3FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo3_3.getText(), 3, 3);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo3_3.getText(), 2, 2);
     }//GEN-LAST:event__TxtFldGrupo3_3FocusLost
 
     private void _TxtFldGrupo4_1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo4_1FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo4_1.getText(), 4, 1);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo4_1.getText(), 3, 0);
     }//GEN-LAST:event__TxtFldGrupo4_1FocusLost
 
     private void _TxtFldGrupo4_2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo4_2FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo4_2.getText(), 4, 2);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo4_2.getText(), 3, 1);
     }//GEN-LAST:event__TxtFldGrupo4_2FocusLost
 
     private void _TxtFldGrupo4_3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__TxtFldGrupo4_3FocusLost
         // TODO add your handling code here:
-        _controlador.asignarRespuestaUsuario(_TxtFldGrupo4_3.getText(), 4, 3);
+        _controlador.asignarRespuestaUsuario(_TxtFldGrupo4_3.getText(), 3, 2);
     }//GEN-LAST:event__TxtFldGrupo4_3FocusLost
 
+    private void _TxtFldGrupo4_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__TxtFldGrupo4_1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event__TxtFldGrupo4_1ActionPerformed
+
+    public void deshabilitarRetroceso(){
+        regresar.setEnabled(false);
+    }
+    
+    public void HabilitarRetroceso(){
+        regresar.setEnabled(true);
+    }
+    
     public void vaciarCampos(){
         _TxtFldGrupo1_1.setText("");
         _TxtFldGrupo1_2.setText("");
@@ -431,6 +429,63 @@ public class Agrupar extends javax.swing.JFrame {
         _lblPregunta.setText(respuestas);
     }
     
+    public void asignarRespuestasUsuario(String respuesta,int seccion,int posicion){
+        switch(seccion){
+            case 1:
+                switch(posicion){
+                    case 1:
+                        _TxtFldGrupo1_1.setText(respuesta);
+                        break;
+                    case 2:
+                        _TxtFldGrupo1_2.setText(respuesta);
+                        break;
+                    case 3:
+                        _TxtFldGrupo1_3.setText(respuesta);
+                        break;
+                }
+                break;
+            case 2:
+                switch(posicion){
+                    case 1:
+                        _TxtFldGrupo2_1.setText(respuesta);
+                        break;
+                    case 2:
+                        _TxtFldGrupo2_2.setText(respuesta);
+                        break;
+                    case 3:
+                        _TxtFldGrupo2_3.setText(respuesta);
+                        break;
+                }
+                break;
+            case 3:
+                switch(posicion){
+                    case 1:
+                        _TxtFldGrupo3_1.setText(respuesta);
+                        break;
+                    case 2:
+                        _TxtFldGrupo3_2.setText(respuesta);
+                        break;
+                    case 3:
+                        _TxtFldGrupo3_3.setText(respuesta);
+                        break;
+                }
+                break;
+            case 4:
+                switch(posicion){
+                    case 1:
+                        _TxtFldGrupo4_1.setText(respuesta);
+                        break;
+                    case 2:
+                        _TxtFldGrupo4_2.setText(respuesta);
+                        break;
+                    case 3:
+                        _TxtFldGrupo4_3.setText(respuesta);
+                        break;
+                }
+                break;
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel _JPanel;
     private javax.swing.JLabel _LblGrupo1;
@@ -453,7 +508,6 @@ public class Agrupar extends javax.swing.JFrame {
     private javax.swing.JLabel _lblPregunta;
     private javax.swing.JButton avanzar;
     private javax.swing.JButton regresar;
-    private javax.swing.JButton terminarExamen;
     // End of variables declaration//GEN-END:variables
     private ControladorAgrupar _controlador = null;
 }

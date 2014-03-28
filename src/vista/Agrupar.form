@@ -61,63 +61,54 @@
                           <Component id="_LblGrupo1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="terminarExamen" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="_TxtFldGrupo1_2" pref="77" max="32767" attributes="0"/>
-                                              <Component id="_TxtFldGrupo1_3" max="32767" attributes="0"/>
-                                              <Component id="_TxtFldGrupo1_1" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="_LblGrupo2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="_TxtFldGrupo2_3" pref="77" max="32767" attributes="0"/>
-                                              <Component id="_TxtFldGrupo2_2" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="_TxtFldGrupo2_1" alignment="1" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                          <Component id="_LblGrupo3" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="_TxtFldGrupo3_3" max="32767" attributes="0"/>
-                                              <Component id="_TxtFldGrupo3_1" max="32767" attributes="0"/>
-                                              <Component id="_TxtFldGrupo3_2" min="-2" pref="77" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                          <Component id="_LblGrupo4" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="_TxtFldGrupo4_2" min="-2" pref="77" max="-2" attributes="0"/>
-                                              <Component id="_TxtFldGrupo4_1" min="-2" pref="77" max="-2" attributes="0"/>
-                                              <Component id="_TxtFldGrupo4_3" min="-2" pref="77" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="409" max="-2" attributes="0"/>
-                                          <Component id="regresar" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="avanzar" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="_TxtFldGrupo1_2" pref="77" max="32767" attributes="0"/>
+                                      <Component id="_TxtFldGrupo1_3" max="32767" attributes="0"/>
+                                      <Component id="_TxtFldGrupo1_1" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="_LblGrupo2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="_TxtFldGrupo2_3" pref="77" max="32767" attributes="0"/>
+                                      <Component id="_TxtFldGrupo2_2" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="_TxtFldGrupo2_1" alignment="1" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Component id="_LblGrupo3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="_TxtFldGrupo3_3" max="32767" attributes="0"/>
+                                      <Component id="_TxtFldGrupo3_1" max="32767" attributes="0"/>
+                                      <Component id="_TxtFldGrupo3_2" min="-2" pref="77" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="_LblGrupo4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="_TxtFldGrupo4_2" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Component id="_TxtFldGrupo4_1" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Component id="_TxtFldGrupo4_3" min="-2" pref="77" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="409" max="-2" attributes="0"/>
+                                  <Component id="regresar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="avanzar" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace pref="22" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="_lblInstruccion" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="_lblPregunta" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -172,9 +163,7 @@
                       <Component id="avanzar" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="regresar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="terminarExamen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -195,14 +184,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#xbf;Pregunta?"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="terminarExamen">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Terminar Examen"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="terminarExamenActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="avanzar">
           <Properties>
@@ -295,6 +276,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="_TxtFldGrupo4_1">
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_TxtFldGrupo4_1ActionPerformed"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="_TxtFldGrupo4_1FocusLost"/>
           </Events>
         </Component>

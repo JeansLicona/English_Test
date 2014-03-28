@@ -6,10 +6,12 @@
 package controlador;
 
 import dao_base_datos.DAO_Pregunta;
+import dao_base_datos.DAO_Resultados_Evaluacion;
 import java.util.ArrayList;
 import modelo.Evaluado;
 import modelo.Pregunta;
 import modelo.Respuesta;
+import modelo.Resultado_Evaluacion;
 import vista.Agrupar;
 
 /**
@@ -19,12 +21,13 @@ import vista.Agrupar;
  */
 public class ControladorAgrupar {
 
-    public ControladorAgrupar(Evaluado evaluado) {
+    public ControladorAgrupar(Evaluado evaluado, double calificacion) {
         _agrupar = new Agrupar(this);
         _evaluado = evaluado;
         _daoPregunta = new DAO_Pregunta();
         _respuestasComparar = new ArrayList();
         crearEstructuraRespuestaUsuario();
+        _calificacion =  calificacion;
     }
 
     /**
@@ -33,19 +36,36 @@ public class ControladorAgrupar {
     public void iniciarPantalla() {
         actualizarCampos();
         _agrupar.setVisible(true);
+        _agrupar.deshabilitarRetroceso();
     }
     
     public void siguientePregunta(){
         _posicion++;
         if(_posicion>=_preguntas.size()){
             calcularCalificacion();
+            _agrupar.setVisible(false);
+            ControladorColumnas columnas = new ControladorColumnas(_evaluado,_calificacion);
+            columnas.iniciarVista();
         }else{
             actualizarCampos();
+            _agrupar.HabilitarRetroceso();
         }
     }
     
+    public void regresarPregunta(){
+        _posicion--;
+        if(_posicion<=0){
+            actualizarCampos();
+            _agrupar.deshabilitarRetroceso();
+        }else{
+            actualizarCampos();
+            _agrupar.HabilitarRetroceso();
+        }
+        
+    }
+    
     public void asignarRespuestaUsuario(String Respuesta,int indexSeccion,int indexRespuesta){
-        _respuestaUsuario.get(_posicion).get(indexSeccion).add(indexRespuesta, Respuesta);
+        _respuestaUsuario.get(_posicion).get(indexSeccion).set(indexRespuesta, Respuesta);
     }
     
     private void calcularCalificacion(){
@@ -66,10 +86,14 @@ public class ControladorAgrupar {
             }
         }
         
+        
         for (int i = 0; i < nuevaListaRespuestaUsuario.size(); i++) {
-            calificacion+= nuevaListaRespuestaUsuario.get(index).getPonderacion();
+            calificacion+= nuevaListaRespuestaUsuario.get(i).getPonderacion();
         }
+        _calificacion+=calificacion;
+        System.out.println(calificacion);
     }
+    
 
     /**
      * Estructura las respuestas agrupadas en la base de datos.
@@ -107,6 +131,7 @@ public class ControladorAgrupar {
         asignarInstrucciones();
         asignarListaRespuestas();
         asignarNombreSecciones();
+        asignarRespuestaUsuario();
     }
 
     /**
@@ -156,6 +181,15 @@ public class ControladorAgrupar {
      */
     private void asignarListaRespuestas() {
         _agrupar.listaRespuestas(todasRespuestas());
+    }
+    
+    private void asignarRespuestaUsuario(){
+        _agrupar.vaciarCampos();
+        for(int i=0; i<_respuestaUsuario.get(_posicion).size();i++){
+            for(int j=0; j<_respuestaUsuario.get(_posicion).get(i).size();j++){
+                _agrupar.asignarRespuestasUsuario(_respuestaUsuario.get(_posicion).get(i).get(j), i+1, j+1);
+            }
+        }
     }
     
     private void crearEstructuraRespuestaUsuario(){
@@ -220,4 +254,5 @@ public class ControladorAgrupar {
     private ArrayList<ArrayList<Respuesta>> _grupoRespuestaActuales = null;
     private DAO_Pregunta _daoPregunta;
     private ArrayList<ArrayList<ArrayList<Respuesta>>> _respuestasComparar = null;
+    private double _calificacion = 0;
 }

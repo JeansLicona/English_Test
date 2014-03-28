@@ -50,7 +50,7 @@ public class ControladorLogin {
         evaluado = _daoEvaluado.buscarEvaluado(evaluado.getNombre_usuario());
         
         ControladorOpcionMultiple ctrlOpMult= new ControladorOpcionMultiple(evaluado);
-        ctrlOpMult.iniciarPantalla();
+        ctrlOpMult.iniciarPresentacion();
         _login.setVisible(false);
     }
     

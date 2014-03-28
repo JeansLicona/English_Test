@@ -6,6 +6,7 @@
 
 package vista;
 
+import controlador.ControladorEdicionExamen;
 import controlador.ControladorLogin;
 import javax.swing.JOptionPane;
 
@@ -129,7 +130,8 @@ public class Login extends javax.swing.JFrame {
         String[] nombreSeparado = null;
         if(!nombre.isEmpty()){
             if ("pase44".equals(JTxtFld_Contrasena.getText())){
-            
+                ControladorEdicionExamen controlador=new ControladorEdicionExamen();
+                    controlador.iniciarPantalla();
             }else{
                 nombreSeparado = _controlador.separarNombre(nombre);
                 _controlador.guardaUsuario(nombreSeparado[0], nombreSeparado[1], nombreSeparado[2]);

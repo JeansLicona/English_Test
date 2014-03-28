@@ -99,7 +99,6 @@ public class Examen extends javax.swing.JFrame {
         _opcion2 = new javax.swing.JRadioButton();
         _opcion3 = new javax.swing.JRadioButton();
         _opcion4 = new javax.swing.JRadioButton();
-        terminarExamen = new javax.swing.JButton();
         avanzar = new javax.swing.JButton();
         _regresar = new javax.swing.JButton();
 
@@ -146,13 +145,6 @@ public class Examen extends javax.swing.JFrame {
             }
         });
 
-        terminarExamen.setText("Terminar Examen");
-        terminarExamen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terminarExamenActionPerformed(evt);
-            }
-        });
-
         avanzar.setText("Avanzar >>");
         avanzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,12 +167,9 @@ public class Examen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 505, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(terminarExamen, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(_regresar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(avanzar))))
+                        .addComponent(_regresar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(avanzar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,9 +204,7 @@ public class Examen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(avanzar)
                     .addComponent(_regresar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(terminarExamen)
-                .addContainerGap())
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -248,10 +235,6 @@ public class Examen extends javax.swing.JFrame {
         _controlador.siguientePregunta();
     }//GEN-LAST:event_avanzarActionPerformed
 
-    private void terminarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarExamenActionPerformed
-
-    }//GEN-LAST:event_terminarExamenActionPerformed
-
     private void _opcion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__opcion4ActionPerformed
         _controlador.asignarRespuestaUsuario(_controlador.obtenerRespuestaActual(3));
     }//GEN-LAST:event__opcion4ActionPerformed
@@ -279,7 +262,6 @@ public class Examen extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton terminarExamen;
     // End of variables declaration//GEN-END:variables
     private ControladorOpcionMultiple _controlador = null;
 }

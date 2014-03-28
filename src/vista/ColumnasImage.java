@@ -14,6 +14,7 @@ public class ColumnasImage extends javax.swing.JFrame {
     public ColumnasImage(ControladorColumnas controlador){
         initComponents();
         _controlador = controlador;
+        this.setSize(845, 550);
     }
 
     /**
@@ -39,6 +40,29 @@ public class ColumnasImage extends javax.swing.JFrame {
         _regresar.setEnabled(true);
     }
     
+    public void limpiarCampos(){
+        _jtf1.setText("");
+        _jtf2.setText("");
+        _jtf3.setText("");
+        _jtf4.setText("");
+        _jtf5.setText("");
+    }
+    
+    public void asignarRespuestas(String respuesta, int numeroRespuesta){
+        switch(numeroRespuesta){
+            case 0: _jtf1.setText(respuesta);
+                break;
+            case 1: _jtf2.setText(respuesta);
+                break;
+            case 2: _jtf3.setText(respuesta);
+                break;
+            case 3: _jtf4.setText(respuesta);
+                break;
+            case 4: _jtf5.setText(respuesta);
+                break;
+        }
+    }
+    
     public void asignarColumnaLetras(String nombreRespuesta, int numeroRespuesta){
         switch(numeroRespuesta){
             case 0: _jlbl1.setText(nombreRespuesta);
@@ -61,22 +85,27 @@ public class ColumnasImage extends javax.swing.JFrame {
         
         switch(numeroRespuesta){
             case 0:  imagen = new Imagen(direccion,_jpnImagen1.getWidth(),_jpnImagen1.getHeight());
+                    _jpnImagen1.removeAll();
                     _jpnImagen1.add(imagen);
                     _jpnImagen1.repaint();
                     break;
             case 1:  imagen = new Imagen(direccion,_jpnImagen2.getWidth(),_jpnImagen2.getHeight());
+                    _jpnImagen2.removeAll();
                     _jpnImagen2.add(imagen);
                     _jpnImagen2.repaint();
                     break;
             case 2:  imagen = new Imagen(direccion,_jpnImagen3.getWidth(),_jpnImagen3.getHeight());
+                    _jpnImagen3.removeAll();
                     _jpnImagen3.add(imagen);
                     _jpnImagen3.repaint();
                     break;
             case 3:  imagen = new Imagen(direccion,_jpnImagen4.getWidth(),_jpnImagen4.getHeight());
+                    _jpnImagen4.removeAll();
                     _jpnImagen4.add(imagen);
                     _jpnImagen4.repaint();
                     break;
             case 4:  imagen = new Imagen(direccion,_jpnImagen5.getWidth(),_jpnImagen5.getHeight());
+                    _jpnImagen5.removeAll();
                     _jpnImagen5.add(imagen);
                     _jpnImagen5.repaint();
                     break;
@@ -109,11 +138,11 @@ public class ColumnasImage extends javax.swing.JFrame {
         _jlbl4 = new javax.swing.JLabel();
         _jlbl5 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        _jtf1 = new javax.swing.JTextField();
+        _jtf2 = new javax.swing.JTextField();
+        _jtf3 = new javax.swing.JTextField();
+        _jtf4 = new javax.swing.JTextField();
+        _jtf5 = new javax.swing.JTextField();
         _jpnImagen1 = new javax.swing.JPanel();
         _jpnImagen5 = new javax.swing.JPanel();
         _jpnImagen3 = new javax.swing.JPanel();
@@ -177,33 +206,58 @@ public class ColumnasImage extends javax.swing.JFrame {
 
         jLabel13.setText("Columna B");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        _jtf1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                _jtf1ActionPerformed(evt);
+            }
+        });
+        _jtf1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                _jtf1FocusLost(evt);
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        _jtf2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                _jtf2ActionPerformed(evt);
+            }
+        });
+        _jtf2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                _jtf2FocusLost(evt);
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        _jtf3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                _jtf3ActionPerformed(evt);
+            }
+        });
+        _jtf3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                _jtf3FocusLost(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        _jtf4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                _jtf4ActionPerformed(evt);
+            }
+        });
+        _jtf4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                _jtf4FocusLost(evt);
             }
         });
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        _jtf5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                _jtf5ActionPerformed(evt);
+            }
+        });
+        _jtf5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                _jtf5FocusLost(evt);
             }
         });
 
@@ -281,7 +335,7 @@ public class ColumnasImage extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(106, 106, 106)
                                 .addComponent(jLabel2)
-                                .addGap(222, 222, 222)
+                                .addGap(283, 283, 283)
                                 .addComponent(jLabel13))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
@@ -306,25 +360,25 @@ public class ColumnasImage extends javax.swing.JFrame {
                                 .addGap(123, 123, 123)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(_jtf3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(_jpnImagen3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(_jtf1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(_jpnImagen1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(_jtf5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(_jpnImagen5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(134, 134, 134)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(_jtf2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(_jpnImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(_jtf4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(_jpnImagen4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -344,7 +398,7 @@ public class ColumnasImage extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(_jtf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(22, 22, 22)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
@@ -369,17 +423,17 @@ public class ColumnasImage extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(_jpnImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(_jtf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(_jpnImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(_jtf4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(_jtf3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(_jlbl5)
                                 .addComponent(jLabel7))
                             .addComponent(_jpnImagen4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -394,9 +448,9 @@ public class ColumnasImage extends javax.swing.JFrame {
                         .addComponent(_jpnImagen3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(_jtf5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(_jpnImagen5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 60, Short.MAX_VALUE))))
+                        .addGap(0, 55, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -419,37 +473,69 @@ public class ColumnasImage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void _jtf5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__jtf5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event__jtf5ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void _jtf4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__jtf4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event__jtf4ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void _jtf3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__jtf3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event__jtf3ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void _jtf2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__jtf2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event__jtf2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void _jtf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__jtf1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event__jtf1ActionPerformed
 
     private void _regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__regresarActionPerformed
 
+        _controlador.regresarPregunta();
     }//GEN-LAST:event__regresarActionPerformed
 
     private void avanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avanzarActionPerformed
 
+        _controlador.siguientePregunta();
     }//GEN-LAST:event_avanzarActionPerformed
 
     private void terminarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarExamenActionPerformed
 
     }//GEN-LAST:event_terminarExamenActionPerformed
+
+    private void _jtf1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__jtf1FocusLost
+        // TODO add your handling code here:
+        if(!_jtf1.getText().isEmpty()){
+        _controlador.agregarRespuestaUsuario(0, Integer.valueOf(_jtf1.getText()));}
+    }//GEN-LAST:event__jtf1FocusLost
+
+    private void _jtf3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__jtf3FocusLost
+        // TODO add your handling code here:
+        if(!_jtf3.getText().isEmpty()){
+        _controlador.agregarRespuestaUsuario(2, Integer.valueOf(_jtf3.getText()));}
+    }//GEN-LAST:event__jtf3FocusLost
+
+    private void _jtf2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__jtf2FocusLost
+        // TODO add your handling code here:
+        if(!_jtf2.getText().isEmpty()){
+        _controlador.agregarRespuestaUsuario(1, Integer.valueOf(_jtf2.getText()));}
+    }//GEN-LAST:event__jtf2FocusLost
+
+    private void _jtf4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__jtf4FocusLost
+        // TODO add your handling code here:
+        if(!_jtf4.getText().isEmpty()){
+        _controlador.agregarRespuestaUsuario(3, Integer.valueOf(_jtf4.getText()));}
+    }//GEN-LAST:event__jtf4FocusLost
+
+    private void _jtf5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event__jtf5FocusLost
+        // TODO add your handling code here:
+        if(!_jtf5.getText().isEmpty()){
+        _controlador.agregarRespuestaUsuario(4, Integer.valueOf(_jtf5.getText()));}
+    }//GEN-LAST:event__jtf5FocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel _jlbl1;
@@ -462,6 +548,11 @@ public class ColumnasImage extends javax.swing.JFrame {
     private javax.swing.JPanel _jpnImagen3;
     private javax.swing.JPanel _jpnImagen4;
     private javax.swing.JPanel _jpnImagen5;
+    private javax.swing.JTextField _jtf1;
+    private javax.swing.JTextField _jtf2;
+    private javax.swing.JTextField _jtf3;
+    private javax.swing.JTextField _jtf4;
+    private javax.swing.JTextField _jtf5;
     private javax.swing.JLabel _pregunta;
     private javax.swing.JButton _regresar;
     private javax.swing.JButton avanzar;
@@ -475,11 +566,6 @@ public class ColumnasImage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JButton terminarExamen;
     // End of variables declaration//GEN-END:variables
     private ControladorColumnas _controlador = null;
