@@ -6,6 +6,7 @@ package vista;
 
 import controlador.ControladorEdicionExamen;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Pregunta;
 
@@ -162,6 +163,7 @@ public class EdicionExamen extends javax.swing.JFrame {
         preguntaEdit.setPregunta(nuevaPregunta);
         editarRespuesta();
         _controladorExamen.editarPregunta(preguntaEdit);
+        JOptionPane.showMessageDialog(this, "Pregunta Editada");
     }//GEN-LAST:event_EditarActionPerformed
 
     /**
@@ -206,7 +208,7 @@ public class EdicionExamen extends javax.swing.JFrame {
         for (int indice = 0; indice < preguntaEdit.getRespuestas().size(); indice++) {
             String respuesta=(String) respuestas.getValueAt(indice, 0);
             preguntaEdit.getRespuestas().get(indice).setRespuesta(respuesta);
-            double ponderacion=(Double) respuestas.getValueAt(indice, 1);
+            double ponderacion=Double.parseDouble(respuestas.getValueAt(indice, 1).toString());
             preguntaEdit.getRespuestas().get(indice).setPonderacion(ponderacion);
         }
     }
