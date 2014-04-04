@@ -8,6 +8,9 @@ package vista;
 
 import controlador.ControladorAgrupar;
 import controlador.ControladorOpcionMultiple;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import javax.swing.JPanel;
 import modelo.Imagen;
 
 /**
@@ -23,6 +26,7 @@ public class Presentacion extends javax.swing.JFrame {
         initComponents();
         inicializar();
         _controlador = controlador;
+        _jpn.setAlignmentX(JPanel.CENTER_ALIGNMENT);
         this.setLocationRelativeTo(null);
     }
 
@@ -32,7 +36,7 @@ public class Presentacion extends javax.swing.JFrame {
         String direccion ="/imagenes/viaje.jpg";
         imagen = new Imagen(direccion,_jpn.getWidth(),_jpn.getHeight());
                     _jpn.removeAll();
-                    _jpn.add(imagen);
+                    _jpn.add(imagen, BorderLayout.CENTER);
                     _jpn.repaint();
     }
     /**
@@ -45,7 +49,7 @@ public class Presentacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        _jpn = new javax.swing.JPanel();
+        _jpn = new javax.swing.JPanel(new BorderLayout());
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,24 +81,24 @@ public class Presentacion extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(221, 221, 221)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
                         .addComponent(_jpn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(_jpn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap(15, Short.MAX_VALUE))
         );

@@ -10,6 +10,7 @@ import dao_base_datos.DAO_Resultados_Evaluacion;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Evaluado;
+import modelo.LibroCalculo;
 import modelo.Pregunta;
 import modelo.Respuesta;
 import modelo.Resultado_Evaluacion;
@@ -22,7 +23,7 @@ import vista.ColumnasImage;
  */
 public class ControladorColumnas {
 
-    public ControladorColumnas(Evaluado evaluado, double calificacion) {
+    public ControladorColumnas(Evaluado evaluado, double calificacion,LibroCalculo libroCalculo) {
         _evaluado = evaluado;
         _columnas = new Columnas(this);
         _columnasImage = new ColumnasImage(this);
@@ -30,6 +31,9 @@ public class ControladorColumnas {
         _respuestaUsuario = new ArrayList();
         inicializarArrayList();
         _calificacion = calificacion;
+        _libroCalculo = libroCalculo;
+        _libroCalculo.resetiarMarcadores();
+        generarEncabezadoLibroCalculo();
     }
 
     public void iniciarVista() {
@@ -39,8 +43,8 @@ public class ControladorColumnas {
 
     public void siguientePregunta() {
         _posicion++;
-        if (_posicion > 4) {
-
+        if (_posicion > 3) {
+            calcularCalificacion();
         } else {
             actualizarVistas();
         }
@@ -67,15 +71,21 @@ public class ControladorColumnas {
             respuestasActuales();
             for (int j = 0; j < _respuestaUsuario.get(i).size(); j++) {
                 if (_columnaBActual.get(j).getRespuesta() == _respuestaUsuario.get(i).get(j)) {
+                    agregarRespuestaHojaCalculo(_respuestaUsuario.get(i).get(j), _columnaBActual.get(j).getRespuesta(),String.valueOf(_columnaBActual.get(j).getPonderacion()));
                     calificacion += _columnaBActual.get(j).getPonderacion();
+                }else{
+                    agregarRespuestaHojaCalculo(_respuestaUsuario.get(i).get(j), _columnaBActual.get(j).getRespuesta(),"0");
                 }
             }
         }
         System.out.println(calificacion);
         _calificacion += calificacion;
+        agregarRespuestaHojaCalculo("", "Total", String.valueOf(calificacion));
+        _libroCalculo.guardarLibro("InformeExamen("+_evaluado.getPrimer_apellido()+" "+_evaluado.getSegundo_apellido()+")");
         guardarCalificacion();
         _columnas.setVisible(false);
         JOptionPane.showMessageDialog(_columnas, "Su calificacion ha sido de "+_calificacion);
+        System.exit(0);
     }
 
     public void guardarCalificacion() {
@@ -103,9 +113,9 @@ public class ControladorColumnas {
     }
 
     private void asignarEtiquetas() {
-        _columnas.actualizarPregunta(_preguntas.get(_posicion).getPregunta());
+        _columnas.actualizarPregunta("<html>"+_preguntas.get(_posicion).getPregunta()+"</html>");
         for (int i = 0; i < _columnaBRevuelta.size(); i++) {
-            _columnas.asignarColumnaLetrasB(_columnaBRevuelta.get(i).getRespuesta(), i);
+            _columnas.asignarColumnaLetrasB("<html>"+_columnaBRevuelta.get(i).getRespuesta()+"</html>", i);
             _columnas.asignarColumnaLetrasA(_columnaAActual.get(i).getRespuesta(), i);
         }
 
@@ -120,7 +130,7 @@ public class ControladorColumnas {
     }
 
     private void asignarEtiquetasEImagenes() {
-        _columnasImage.actualizarPregunta(_preguntas.get(_posicion).getPregunta());
+        _columnasImage.actualizarPregunta("<html>"+_preguntas.get(_posicion).getPregunta()+"</html>");
         for (int i = 0; i < _columnaBRevuelta.size(); i++) {
             _columnasImage.asignarImagen(_columnaBRevuelta.get(i).getRespuesta(), i);
             _columnasImage.asignarColumnaLetras(_columnaAActual.get(i).getRespuesta(), i);
@@ -202,6 +212,31 @@ public class ControladorColumnas {
         _respuestaUsuario.add(array3);
         _respuestaUsuario.add(array4);
     }
+    
+            private void generarEncabezadoLibroCalculo(){
+        _libroCalculo.crearhoja("Seccion Columnas");
+        _libroCalculo.crearFila();
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(_evaluado.getNombres()+" "+_evaluado.getPrimer_apellido()+" "+_evaluado.getSegundo_apellido());
+        _libroCalculo.mezclarCampos(0, 0, 0, 2);
+        _libroCalculo.crearFila();
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda("Columna A");
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda("Columna B");
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda("Valor de Respuesta");
+    }
+        
+        private void agregarRespuestaHojaCalculo(String columnaA, String columnaB, String valor){
+        _libroCalculo.crearFila();
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(columnaA);
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(columnaB);
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(valor);
+    }
 
     private Evaluado _evaluado = null;
     private Columnas _columnas = null;
@@ -214,5 +249,6 @@ public class ControladorColumnas {
     private ArrayList<Respuesta> _columnaBRevuelta = null;
     private ArrayList<ArrayList<String>> _respuestaUsuario = null;
     private double _calificacion = 0;
+    private LibroCalculo _libroCalculo = null;
 
 }

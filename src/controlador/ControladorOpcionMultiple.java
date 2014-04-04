@@ -9,6 +9,7 @@ package controlador;
 import dao_base_datos.DAO_Pregunta;
 import java.util.ArrayList;
 import modelo.Evaluado;
+import modelo.LibroCalculo;
 import modelo.Pregunta;
 import modelo.Respuesta;
 import vista.Examen;
@@ -26,6 +27,8 @@ public class ControladorOpcionMultiple {
      _evaluado = evaluado;
      _respuestaUsuario = new ArrayList();
      _presentacion = new Presentacion(this);
+     _libroCalculo = new LibroCalculo();
+     generarEncabezadoLibroCalculo();
     }
     
     public void iniciarPresentacion(){
@@ -48,7 +51,7 @@ public class ControladorOpcionMultiple {
         if(_posicion>=_preguntas.size()){
             calcularGuardarCalificacion();
             _opcionMultiple.setVisible(false);
-            ControladorAgrupar ctrlOpMult= new ControladorAgrupar(_evaluado,_calificacion);
+            ControladorAgrupar ctrlOpMult= new ControladorAgrupar(_evaluado,_calificacion,_libroCalculo);
             ctrlOpMult.iniciarPantalla();
         }else{
             actualizarCampos();
@@ -78,7 +81,11 @@ public class ControladorOpcionMultiple {
     
         
     public void asignarRespuestaUsuario(Respuesta respuestaElegida){
-        _respuestaUsuario.add(_posicion, respuestaElegida);
+        try{
+        _respuestaUsuario.set(_posicion, respuestaElegida);
+        }catch(IndexOutOfBoundsException e){
+            _respuestaUsuario.add(_posicion, respuestaElegida);
+        }
     }
     
     public ArrayList<Respuesta> obtenerRespuestasUsuario(){
@@ -97,10 +104,10 @@ public class ControladorOpcionMultiple {
         actualizarRespuestasActuales();
         
         _opcionMultiple.actualizarPregunta(obtenerPregunta());
-        _opcionMultiple.actualizarOpcion1(_respuestasActuales.get(0).getRespuesta());
-        _opcionMultiple.actualizarOpcion2(_respuestasActuales.get(1).getRespuesta());
-        _opcionMultiple.actualizarOpcion3(_respuestasActuales.get(2).getRespuesta());
-        _opcionMultiple.actualizarOpcion4(_respuestasActuales.get(3).getRespuesta());
+        _opcionMultiple.actualizarOpcion1("<html>"+_respuestasActuales.get(0).getRespuesta()+"</html>");
+        _opcionMultiple.actualizarOpcion2("<html>"+_respuestasActuales.get(1).getRespuesta()+"</html>");
+        _opcionMultiple.actualizarOpcion3("<html>"+_respuestasActuales.get(2).getRespuesta()+"</html>");
+        _opcionMultiple.actualizarOpcion4("<html>"+_respuestasActuales.get(3).getRespuesta()+"</html>");
         
         if(_respuestaUsuario.size()>_posicion){
             _opcionMultiple.limpiarSelecciones();
@@ -115,7 +122,6 @@ public class ControladorOpcionMultiple {
         if (_preguntas==null){
             _preguntas = _daoPregunta.buscarPreguntasPorTipo("0");
         }else{
-            System.out.println("Ya ha sido cargado las preguntas");
         }
     }
     
@@ -126,7 +132,7 @@ public class ControladorOpcionMultiple {
     
     private String obtenerPregunta(){
         Pregunta pregunta = (Pregunta) _preguntas.get(_posicion);
-        return pregunta.getPregunta();
+        return "<html>"+pregunta.getPregunta()+"</html>";
     }
     
     private void calcularGuardarCalificacion(){
@@ -134,9 +140,36 @@ public class ControladorOpcionMultiple {
         
         for(int i=0;i<_respuestaUsuario.size();i++){
             calificacionSeccion1 = calificacionSeccion1 + _respuestaUsuario.get(i).getPonderacion();
+            agregarRespuestaHojaCalculo(_preguntas.get(i).getPregunta(), _respuestaUsuario.get(i).getRespuesta(), String.valueOf(_respuestaUsuario.get(i).getPonderacion()));
         }
         System.out.println(calificacionSeccion1);
         _calificacion+=calificacionSeccion1;
+        agregarRespuestaHojaCalculo("", "Total", String.valueOf(_calificacion));
+    }
+    
+    private void generarEncabezadoLibroCalculo(){
+        _libroCalculo.crearhoja("Seccion OpcionesMultiples");
+        _libroCalculo.crearFila();
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(_evaluado.getNombres()+" "+_evaluado.getPrimer_apellido()+" "+_evaluado.getSegundo_apellido());
+        _libroCalculo.mezclarCampos(0, 0, 0, 2);
+        _libroCalculo.crearFila();
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda("Pregunta");
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda("Respuesta Usuario");
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda("Valor de Respuesta");
+    }
+    
+    private void agregarRespuestaHojaCalculo(String pregunta, String respuesta, String valor){
+        _libroCalculo.crearFila();
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(pregunta);
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(respuesta);
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(valor);
     }
     
     private Examen _opcionMultiple = null;
@@ -148,4 +181,5 @@ public class ControladorOpcionMultiple {
     private ArrayList<Pregunta> _preguntas = null;
     private double _calificacion = 0;
     private Presentacion _presentacion= null;
+    private LibroCalculo _libroCalculo = null; 
 }

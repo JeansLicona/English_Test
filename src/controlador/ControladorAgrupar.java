@@ -9,6 +9,7 @@ import dao_base_datos.DAO_Pregunta;
 import dao_base_datos.DAO_Resultados_Evaluacion;
 import java.util.ArrayList;
 import modelo.Evaluado;
+import modelo.LibroCalculo;
 import modelo.Pregunta;
 import modelo.Respuesta;
 import modelo.Resultado_Evaluacion;
@@ -21,13 +22,16 @@ import vista.Agrupar;
  */
 public class ControladorAgrupar {
 
-    public ControladorAgrupar(Evaluado evaluado, double calificacion) {
+    public ControladorAgrupar(Evaluado evaluado, double calificacion,LibroCalculo libroCalculo) {
         _agrupar = new Agrupar(this);
         _evaluado = evaluado;
         _daoPregunta = new DAO_Pregunta();
         _respuestasComparar = new ArrayList();
         crearEstructuraRespuestaUsuario();
         _calificacion =  calificacion;
+        _libroCalculo = libroCalculo;
+        _libroCalculo.resetiarMarcadores();
+        generarEncabezadoLibroCalculo();
     }
 
     /**
@@ -44,7 +48,7 @@ public class ControladorAgrupar {
         if(_posicion>=_preguntas.size()){
             calcularCalificacion();
             _agrupar.setVisible(false);
-            ControladorColumnas columnas = new ControladorColumnas(_evaluado,_calificacion);
+            ControladorColumnas columnas = new ControladorColumnas(_evaluado,_calificacion,_libroCalculo);
             columnas.iniciarVista();
         }else{
             actualizarCampos();
@@ -72,15 +76,30 @@ public class ControladorAgrupar {
         ArrayList<Respuesta> nuevaListaRespuestaUsuario = new ArrayList();
         int index = -1;
         int calificacion = 0;
+        ArrayList<Respuesta> grupos = obtenerTodosGrupos();
+        int indicadorGrupo = 0;
         
         for (int i = 0; i < _respuestaUsuario.size(); i++) {
             for (int j = 0; j < _respuestaUsuario.get(i).size(); j++) {
                 for (int k = 0; k < _respuestaUsuario.get(i).get(j).size(); k++) {
                     index = _respuestaUsuario.get(i).get(j).indexOf(_respuestasComparar.get(i).get(j).get(k).getRespuesta());
-
+                    
                     if(index>-1){
                         nuevaListaRespuestaUsuario.add(_respuestasComparar.get(i).get(j).get(index));
+                        if(j == indicadorGrupo || j == (indicadorGrupo-4)){
+                            agregarRespuestaHojaCalculo(grupos.get(indicadorGrupo).getRespuesta(),_respuestasComparar.get(i).get(j).get(index).getRespuesta(), String.valueOf(_respuestasComparar.get(i).get(j).get(index).getPonderacion()));
+                            indicadorGrupo++;
+                        }else{
+                            agregarRespuestaHojaCalculo(_respuestasComparar.get(i).get(j).get(index).getRespuesta(), String.valueOf(_respuestasComparar.get(i).get(j).get(index).getPonderacion()));
+                        }
                         index = -1;
+                    }else{
+                        if(j == indicadorGrupo || j == (indicadorGrupo-4)){
+                            agregarRespuestaHojaCalculo(grupos.get(indicadorGrupo).getRespuesta(),_respuestaUsuario.get(i).get(j).get(k), "0");
+                            indicadorGrupo++;
+                        }else{
+                            agregarRespuestaHojaCalculo(_respuestaUsuario.get(i).get(j).get(k), "0");
+                        }
                     }
                 }
             }
@@ -91,6 +110,7 @@ public class ControladorAgrupar {
             calificacion+= nuevaListaRespuestaUsuario.get(i).getPonderacion();
         }
         _calificacion+=calificacion;
+        agregarRespuestaHojaCalculo("Total", String.valueOf(calificacion));
         System.out.println(calificacion);
     }
     
@@ -121,6 +141,22 @@ public class ControladorAgrupar {
         _gruposActuales = grupos;
         _grupoRespuestaActuales = gruposRespuestas;
         _respuestasComparar.add(_grupoRespuestaActuales);
+    }
+    
+    private ArrayList<Respuesta> obtenerTodosGrupos(){
+        ArrayList<Respuesta> respuestaJunta = new ArrayList();
+        ArrayList<Respuesta> grupos = new ArrayList();
+        ArrayList<Pregunta> preguntas = null;
+        
+        preguntas = _daoPregunta.buscarPreguntasPorTipo("1");
+        
+        for(int j=0;j<2;j++){
+        respuestaJunta = _preguntas.get(j).getRespuestas();
+        for (int i = 0; i < (respuestaJunta.size() / 4); i++) {
+            grupos.add(respuestaJunta.get(i * 4));
+        }}
+        
+        return grupos;
     }
 
     /**
@@ -244,6 +280,41 @@ public class ControladorAgrupar {
         
         _respuestaUsuario = tercero;
     }
+    
+        private void generarEncabezadoLibroCalculo(){
+        _libroCalculo.crearhoja("Seccion Agrupar");
+        _libroCalculo.crearFila();
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(_evaluado.getNombres()+" "+_evaluado.getPrimer_apellido()+" "+_evaluado.getSegundo_apellido());
+        _libroCalculo.mezclarCampos(0, 0, 0, 2);
+        _libroCalculo.crearFila();
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda("Seccion");
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda("Respuesta Usuario");
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda("Valor de Respuesta");
+    }
+        
+        private void agregarRespuestaHojaCalculo(String seccion, String respuesta, String valor){
+        _libroCalculo.crearFila();
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(seccion);
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(respuesta);
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(valor);
+    }
+        
+        private void agregarRespuestaHojaCalculo(String respuesta, String valor){
+        _libroCalculo.crearFila();
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda("");
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(respuesta);
+        _libroCalculo.crearCelda();
+        _libroCalculo.editarCelda(valor);
+    }
 
     private Agrupar _agrupar = null;
     private Evaluado _evaluado = null;
@@ -255,4 +326,5 @@ public class ControladorAgrupar {
     private DAO_Pregunta _daoPregunta;
     private ArrayList<ArrayList<ArrayList<Respuesta>>> _respuestasComparar = null;
     private double _calificacion = 0;
+    private LibroCalculo _libroCalculo = null;
 }

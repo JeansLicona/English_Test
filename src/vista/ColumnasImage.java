@@ -81,7 +81,6 @@ public class ColumnasImage extends javax.swing.JFrame {
     public void asignarImagen(String nombreImagen,int numeroRespuesta){
         Imagen imagen = null;
         String direccion ="/imagenes/"+nombreImagen;
-        System.out.println(direccion);
         
         switch(numeroRespuesta){
             case 0:  imagen = new Imagen(direccion,_jpnImagen1.getWidth(),_jpnImagen1.getHeight());
